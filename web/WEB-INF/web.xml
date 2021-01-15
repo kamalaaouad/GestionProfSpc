@@ -8,6 +8,10 @@
         <servlet-name>SpcController</servlet-name>
         <servlet-class>controllers.SpcController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>loginController</servlet-name>
+        <servlet-class>controllers.loginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProfesseurController</servlet-name>
         <url-pattern>/ProfesseurController</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>SpcController</servlet-name>
         <url-pattern>/SpcController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginController</servlet-name>
+        <url-pattern>/loginController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

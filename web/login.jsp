@@ -1,3 +1,11 @@
+<%-- 
+    Document   : login
+    Created on : 14 janv. 2021, 01:22:15
+    Author     : Toufiq
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +25,7 @@
                 <div class="background"></div>
             </div>
 
-            <form id="accesspanel" action="login" method="post">
+            <form id="accesspanel" action="logincontroler" method="post">
                 <h1 id="litheader">AECEND</h1>
                 <div class="inset">
                     <p>
@@ -43,3 +51,4 @@
 
     </body>
 </html>
+
