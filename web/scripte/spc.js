@@ -12,8 +12,11 @@ $(document).ready(function(){
         });
     $("#submitspc").click(function(){
         //alert("kamal");
+        if(parseInt($("#id").val()) ===0)
+        {
         var code = $("#code").val();
         var libelle = $("#libelle").val();
+        if(code !== "" && libelle !== " "){
        // console.log(code +" "+libelle)
         $.ajax({
             url: "SpcController",
@@ -28,11 +31,16 @@ $(document).ready(function(){
         });
         $("#code").val("");
         $("#libelle").val("");
-    });
+    }
+   }
+ });
     $("#submitspcupdate").click(function(){
+         if(parseInt($("#id").val()) !==0)
+         {
         var code = $("#code").val();
         var libelle = $("#libelle").val();
         var id = $("#id").val();
+        if(code !== " " && libelle !==" "){
        // console.log(code +" "+libelle)
         $.ajax({
             url: "SpcController",
@@ -44,10 +52,13 @@ $(document).ready(function(){
             error: function(data){
                 console.log(data);
             }
+        
         });
         $("#code").val("");
         $("#libelle").val("");
-    });
+    }
+   }
+  });
     $("#content").on("click",'.badge',function(){
         //alert($(this).attr("data-role"));
         if($(this).attr("data-role")==="delete"){

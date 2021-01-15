@@ -57,23 +57,35 @@ $(document).ready(function () {
             var date = $("#inputDate").val();
             var sexe = $("#inputSexe").val();
             var spc = $("#inputSpc").val();
-            console.log("ajout"+nom)
-            $.ajax({
-                url: "ProfesseurController",
-                data: {action: "add", nom: nom, prenom: prenom, tele: tele, email: email, date: date, sexe: sexe, spc: spc},
-                method: "POST",
-                success: function (data) {
-                    console.log("data ja o mjabch");
-                    listerProf(data);
-                },
-                error: function (data) {
-                    console.log(data);
-                }
-            });
-        } 
+            console.log("ajout" + nom);
+            if ($("#inputNom").val() !== " " && $("#inputPrenom").val() !== " " && $("#inputTele").val() !== " " && $("#inputEmail").val() !== " " && $("#inputDate").val() !== " " && $("#inputSexe").val() !== " " && $("#inputSpc").val() !== " ")
+            {
+
+                $.ajax({
+                    url: "ProfesseurController",
+                    data: {action: "add", nom: nom, prenom: prenom, tele: tele, email: email, date: date, sexe: sexe, spc: spc},
+                    method: "POST",
+                    success: function (data) {
+                        console.log("data ja o mjabch");
+                        listerProf(data);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+                $("#inputNom").val("");
+                $("#inputPrenom").val("");
+                $("#inputTele").val("");
+                $("#inputEmail").val("");
+                $("#inputDate").val("");
+                $("#inputSexe").val("");
+                $("#inputSpc").val("");
+                $("#inputId").val("");
+            }
+        }
     });
-    $("#submitupdate").click(function(){
-        //if(parseInt($("#inputId").val()) !== 0) {
+    $("#submitupdate").click(function () {
+        if (parseInt($("#inputId").val()) !== 0) {
             var nom = $("#inputNom").val();
             var prenom = $("#inputPrenom").val();
             var tele = $("#inputTele").val();
@@ -82,22 +94,34 @@ $(document).ready(function () {
             var sexe = $("#inputSexe").val();
             var spc = $("#inputSpc").val();
             var id = $("#inputId").val();
-            console.log("update"+id);
-            $.ajax({
-                url: "ProfesseurController",
-                data: {action: "update", id : id ,nom: nom, prenom: prenom, tele: tele, email: email, date: date, sexe: sexe, spc: spc},
-                method: "POST",
-                success: function (data) {
-                    console.log("her hna")
-                    console.log(data);
-                    listerProf(data);
-                },
-                error: function () {
-                    //console.log(data);
-                }
-            });
-       // }
+            console.log("update" + id);
+            if ($("#inputNom").val() !== " " && $("#inputPrenom").val() !== " " && $("#inputTele").val() !== " " && $("#inputEmail").val() !== " " && $("#inputDate").val() !== " " && $("#inputSexe").val() !== " " && $("#inputSpc").val() !== " ")
+            {
+                $.ajax({
+                    url: "ProfesseurController",
+                    data: {action: "update", id: id, nom: nom, prenom: prenom, tele: tele, email: email, date: date, sexe: sexe, spc: spc},
+                    method: "POST",
+                    success: function (data) {
+                        console.log("her hna")
+                        console.log(data);
+                        listerProf(data);
+                    },
+                    error: function () {
+                        //console.log(data);
+                    }
+                });
+                $("#inputNom").val("");
+                $("#inputPrenom").val("");
+                $("#inputTele").val("");
+                $("#inputEmail").val("");
+                $("#inputDate").val("");
+                $("#inputSexe").val("");
+                $("#inputSpc").val("");
+                $("#inputId").val("");
+            }
+        }
     });
+
     $("#contentprof").on('click', '.badge', function () {
         // alert($(this).attr("indice"));
         if ($(this).attr("role") === "delete") {
